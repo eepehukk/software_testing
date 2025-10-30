@@ -39,7 +39,7 @@ const TodoItem = (props: TodoItemProps) => {
       ) : (
         <>
           <span
-            class="scroll-ms-4 overflow-x-auto whitespace-pre-wrap text-xl"
+            class="scroll-ms-4 overflow-x-auto whitespace-pre-wrap text-xl width-full cursor-pointer flex-grow"
             onClick={() => props.toggleComplete(props.index)}
           >
             {todoItem.description}

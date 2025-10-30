@@ -49,7 +49,7 @@ const TodoList = (props: TodoListProps) => {
         <div class="flex flex-grow">
           <a
             href="/todos"
-            class="flex w-full flex-grow cursor-pointer flex-row rounded-lg p-2 transition-colors hover:bg-gray-700 "
+            class="flex w-full flex-grow cursor-pointer flex-row rounded-lg p-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700 "
             onClick={() => props.handleSelectTodoList(props.todoList)}
           >
             <span class="h-fit w-2/5 scroll-ms-4 overflow-x-auto whitespace-pre-wrap text-2xl font-medium">

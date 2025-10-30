@@ -113,7 +113,7 @@ export default function ShareTodoListForm(props: shareTodoListFormProps) {
 
   return (
     <dialog id={props.dialogId} class="modal">
-      <div class="flex w-full max-w-2xl flex-col justify-center self-center rounded-md bg-current px-10 py-6">
+      <div class="flex w-full max-w-2xl flex-col justify-center self-center rounded-md px-10 py-6 bg-gray-50 dark:bg-gray-800">
         {todoListMembers().length > 0 && (
           <div>
             <div class="container prose mx-auto mb-8 w-full max-w-4xl">
