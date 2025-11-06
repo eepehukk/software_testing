@@ -47,25 +47,3 @@ services:
     volumes:
       - ./database/migration/sql:/flyway/sql
     command: -connectRetries=60 -baselineOnMigrate=true migrate
-  robot-tests:
-    build:
-      context: ./tests
-      dockerfile: Dockerfile
-    depends_on:
-      - frontend-dev
-      - backend-dev
-    environment:
-      FRONTEND_URL: http://frontend-dev:4321
-      BACKEND_URL: http://backend-dev:8000
-    volumes:
-      - ./tests:/tests
-      - ./tests/results:/tests/results
-    command: >
-      bash -c "
-        echo '⏳ Waiting for backend...';
-        until curl -s http://backend-dev:8000/health; do sleep 2; done;
-        echo '⏳ Waiting for frontend...';
-        until curl -s http://frontend-dev:4321; do sleep 2; done;
-        echo '🚀 Starting Robot Framework tests...';
-        robot --outputdir results /tests
-      "
