@@ -5,6 +5,11 @@
 - Projektin perustiedot.
 
 ## 2. Test Context
+
+Testers: Niko Iljin & Eemil Hukkanen
+
+Testauksen tavoitteena on tunnistaa sovelluksen bugeja ja varmistaa sovelluksen laatu sovelusta päivittäessä. Nämä testit Testaavat devaus versiota ja eivät tavoittele 100% testikattavuutta. Suunnitelmassa huomioidaan tilanteita mitä ei testata devaus versiossa ja mitä tulisi testata ennen julkistamista.
+
 Testaukseen osallistuvat henkilöt & tavoitteet
 
 ### 2.1 In scope
@@ -13,8 +18,8 @@ Testaukseen osallistuvat henkilöt & tavoitteet
 ### 2.2 Out of scope
 - Mitä tiedustetusti ei haluta testata
 
-## Preparing testing
+## 3 Preparing testing
 - TODO list what should be done
 
-## Practicalities
+## 4 Practicalities
 - Työkalut & raportointi & tuotokset / tulokset
