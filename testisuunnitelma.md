@@ -18,21 +18,22 @@ Nämä testit Testaavat devaus versiota ja eivät tavoittele 100% testikattavuut
 testauken tavoitteena on tarjota devaustiimille palautetta sovelluksen tilasta ja tukea virheiden korjaamista ennen tuotantoon vientiä.
 
 ### 2.1 In scope
-
+#### Manual testing
 Manual testing to test all functionalities work as expexted and usability testing for trying to test all user usages. Consisting autenthication, todo list and todo item functionalities
 
+
+#### API and E2E testing
 API and end to end testing to be made as happy path testing.
 
-A working CI pipeline to run the API tests.
+A working CI pipeline to run the API tests automatically.
 
 Another pipeline for a selection of end to end tests tagged as smoke tests to be run on push to main branch and run a full test suite nightly. With one step for running non-functional automated tests.
 
 
 ### 2.2 Out of scope
 
-For manual testing we dont 
+We will not be testing rare edge cases, erro handling scenarios, all invalid inputs, cross browser, device compatibility, performance, load, stress testing, security testing, scalability, database recovery.
 
-- Mitä tiedustetusti ei haluta testata
 
 ## 3 Preparing testing
 - TODO list what should be done
