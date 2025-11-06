@@ -9,13 +9,12 @@
 
 Testers: Niko Iljin & Eemil Hukkanen
 
-Testauksen tavoitteena on tunnistaa sovelluksen bugeja ja varmistaa sovelluksen laatu sovelusta päivittäessä. Tärkeää käyttäjäkokemuksen varmistamisessa.
+The main goal of this testing project is to ensure reliable user experience. Its done by identifying bugs in the given application and ensure overall quality during the development of the application. 
 
-Testaus painottuu devausversioon ja siellä kriittisiin ja muutettuihin toiminnallisuuksiin.
+Tetsing focuses on the developement version of the application, specifically on critical functionalities and identifies what will not be tested in the developement environment as well what should be tested before release. 
 
-Nämä testit Testaavat devaus versiota ja eivät tavoittele 100% testikattavuutta. Suunnitelmassa huomioidaan tilanteita mitä ei testata devaus versiossa ja mitä tulisi testata ennen julkistamista.
+The objective is to provide feedback to the development team about te current state of the application and support bug detection before deployment to production.
 
-testauken tavoitteena on tarjota devaustiimille palautetta sovelluksen tilasta ja tukea virheiden korjaamista ennen tuotantoon vientiä.
 
 ### 2.1 In scope
 #### Manual testing
@@ -32,11 +31,15 @@ Another pipeline for a selection of end to end tests tagged as smoke tests to be
 
 ### 2.2 Out of scope
 
-We will not be testing rare edge cases, erro handling scenarios, all invalid inputs, cross browser, device compatibility, performance, load, stress testing, security testing, scalability, database recovery.
+We will not be testing rare edge cases, error handling scenarios, all invalid inputs, cross browser, device compatibility, performance, load, stress testing, security testing, scalability, database recovery.
 
 
-## 3 Preparing testing
-- TODO list what should be done
+## 3 Testing schedule
+
+1. Testing plan
+2. manual testing
+3. Automatic testing
+
 
 ## 4 Practicalities
 - Työkalut & raportointi & tuotokset / tulokset
