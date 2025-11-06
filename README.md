@@ -56,3 +56,16 @@ This can be done for both configurations with
 ```
 docker compose down --remove-orphans
 ```
+
+
+### Tests 
+
+Can be ran when the dev container is running with running the test container with these
+
+```
+docker build -t robot-tests -f tests/Dockerfile tests
+```
+
+```
+docker run --rm robot-tests
+```
