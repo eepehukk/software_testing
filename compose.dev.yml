@@ -47,3 +47,12 @@ services:
     volumes:
       - ./database/migration/sql:/flyway/sql
     command: -connectRetries=60 -baselineOnMigrate=true migrate
+
+  robot-tests:
+    build:
+      context: ./tests
+      dockerfile: Dockerfile
+    depends_on:
+      - frontend-dev
+    networks:
+      - default
