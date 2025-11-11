@@ -2,7 +2,7 @@
 Library    Browser
 
 *** Variables ***
-${URL}          http://localhost:4321/
+${URL}          http://frontend-dev:4321/
 ${MYUSERNAME}   demo
 ${MYPASSWORD}   mode
 
