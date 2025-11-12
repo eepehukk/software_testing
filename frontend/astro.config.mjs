@@ -9,6 +9,11 @@ export default defineConfig({
   server: {
     port: 4321,
     host: '0.0.0.0',
-    allowedHosts: ['frontend-dev'], // Allows me the access from robot-tests
+    allowedHosts: ['frontend-dev', 'localhost', '*'], // Allows me the access from robot-tests
+  },
+  vite: {
+    server: {
+      allowedHosts: ['frontend-dev', 'localhost', '0.0.0.0'],
+    },
   },
 })

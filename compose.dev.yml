@@ -10,6 +10,8 @@ services:
       - "/app/node_modules/"
     depends_on:
       - backend-dev
+    networks:
+      - default
   backend-dev:
     build:
       context: backend/
@@ -50,7 +52,7 @@ services:
 
   robot-tests:
     build:
-      context: ./tests
+      context: tests/
       dockerfile: Dockerfile
     depends_on:
       - frontend-dev
