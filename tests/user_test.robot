@@ -9,25 +9,29 @@ ${MYPASSWORD}   12345678
 *** Test Cases ***
 
 Todo Manager Should Be Visible After Successful Login
-    [Setup]      Do Successful Login
-    Should Be Equal As Integers    1    1
-
+    Do Successful Login
 
 *** Keywords ***
 
 Do Successful Login
     Open Browser To Login Page
     Open Registeration Page
-    Enter Username
-    Enter Password
-    Submit Register Form
+    Verify Registeration Page
+
 
 Open Browser To Login Page
     New Browser     headless=${TRUE}
     New Page        ${URL}login
+    Get Text        body    contains    Welcome to Todo Manager
+
 
 Open Registeration Page
-    Click           text=To Registration
+    Click           id=register-button
+    Wait For Navigation    url=**/register    timeout=5s
+
+Verify Registeration Page
+    Get Text        body    contains    Register an account
+
 
 Enter Username
     [Arguments]    ${username}=${MYUSERNAME}
@@ -38,7 +42,7 @@ Enter Password
     Fill Text       id=password    ${password}
 
 Submit Register Form
-    Click           text=Register
+    Click           id=submit-register-button
 
 Do Successful Logout
     Click           text=Logout

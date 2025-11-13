@@ -16,7 +16,7 @@ services:
       test: [ "CMD-SHELL", "curl -f http://frontend-dev:4321 || exit 1" ]
       interval: 5s
       timeout: 3s
-      retries: 2
+      retries: 5
 
   backend-dev:
     build:
