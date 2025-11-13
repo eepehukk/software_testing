@@ -94,6 +94,7 @@ export default function LoginForm() {
               label="To Registration"
               variant="secondary"
               onClick={() => navigate('/register')}
+              id="register-button"
             />
             <ActionButton
               loading={loginForm.submitting}
