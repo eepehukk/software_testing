@@ -8,8 +8,6 @@ ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
-
-
 Login Form shows successful registration and logout
     Do Successful Login
     Enter Username    ${MYUSERNAME}
@@ -18,8 +16,19 @@ Login Form shows successful registration and logout
     Verify That Todo Manager Is Visible
     Close Browser
 
+Login Form successful after registration and logout
+    Fill Login Form
+    Enter Username    ${MYUSERNAME}
+    Enter Password    ${MYPASSWORD}
+    Submit Login Form
+    Verify That Todo Manager Is Visible
+    Close Browser
 
 *** Keywords ***
+
+Fill Login Form
+    Open Browser To Login Page
+
 
 Do Successful Login
     Open Browser To Login Page
@@ -53,6 +62,10 @@ Submit Register Form
     Click           id=submit-register-button
     Sleep          10s
 
+Submit Login Form
+    Sleep          2s
+    Click          id=login-form-button
+    Sleep          10s
 
 Do Successful Logout
     Click           text=Logout

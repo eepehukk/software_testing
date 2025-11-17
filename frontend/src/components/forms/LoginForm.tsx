@@ -100,6 +100,7 @@ export default function LoginForm() {
               loading={loginForm.submitting}
               label="Login"
               variant="primary"
+              id="login-form-button"
             />
           </div>
         </Form>
