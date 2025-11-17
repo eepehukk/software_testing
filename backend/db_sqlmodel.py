@@ -6,8 +6,8 @@ import os
 
 user = os.getenv('POSTGRES_USER')
 password = os.getenv('POSTGRES_PASSWORD')
-host = 'db'
-port = '5432'
+host = 'database-dev'
+port = '5431'
 database = os.getenv('POSTGRES_DB')
 
 database_url = f"postgresql+asyncpg://{user}:{password}@{host}:{port}/{database}"

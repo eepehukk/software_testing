@@ -56,3 +56,9 @@ This can be done for both configurations with
 ```
 docker compose down --remove-orphans
 ```
+
+### Test run command
+
+```
+docker compose down --remove-orphans ; rm -rf database/psql_data ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; sleep 40 ; docker logs software_testing-robot-tests-1
+```

@@ -8,7 +8,7 @@ class Database:
     def __init__(self):
         self.user = os.getenv('POSTGRES_USER')
         self.password = os.getenv('POSTGRES_PASSWORD')
-        self.host = 'db'
+        self.host = 'database-dev'
         self.port = '5432'
         self.database = os.getenv('POSTGRES_DB')
 
