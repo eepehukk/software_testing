@@ -2,6 +2,7 @@ import type { SetStoreFunction } from 'solid-js/store'
 import userState, { type User } from '../state/userState'
 import { navigate } from 'astro:transitions/client'
 
+// const BASE_URL = 'http://localhost:4322/'
 const BASE_URL = 'http://backend-dev:8000'
 
 const refreshAccessToken = async (

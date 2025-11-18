@@ -34,7 +34,7 @@ Open Browser To Login Page
 
 
 Open Registeration Page
-    Click           id=register-button
+    Click                  text=To Registration
     Wait For Navigation    url=**/register    timeout=5s
     Verify Registeration Page
 
@@ -52,12 +52,12 @@ Enter Password
 
 Submit Register Form
     Sleep          2s
-    Click           id=submit-register-button
+    Click    role=button >> text=Register
     Sleep          10s
 
 Submit Login Form
     Sleep          2s
-    Click          id=login-form-button
+    Click    role=button >> text=Login
     Sleep          10s
 
 Do Successful Logout
