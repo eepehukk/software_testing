@@ -3,13 +3,14 @@ Library    Browser
 
 *** Variables ***
 ${URL}          http://frontend-dev:4321/
-${MYUSERNAME}   jhdfdkuahwasd
+${MYUSERNAME}   SofianKurssisuoritus
 ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
 Login Form shows successful registration and logout
-    Do Successful Login
+    Open Browser To Login Page
+    Open Registeration Page
     Enter Username    ${MYUSERNAME}
     Enter Password    ${MYPASSWORD}
     Submit Register Form
@@ -17,7 +18,7 @@ Login Form shows successful registration and logout
     Close Browser
 
 Login Form successful after registration and logout
-    Fill Login Form
+    Open Browser To Login Page
     Enter Username    ${MYUSERNAME}
     Enter Password    ${MYPASSWORD}
     Submit Login Form
@@ -25,15 +26,6 @@ Login Form successful after registration and logout
     Close Browser
 
 *** Keywords ***
-
-Fill Login Form
-    Open Browser To Login Page
-
-
-Do Successful Login
-    Open Browser To Login Page
-    Open Registeration Page
-    Verify Registeration Page
 
 Open Browser To Login Page
     New Browser     headless=${TRUE}
@@ -44,6 +36,7 @@ Open Browser To Login Page
 Open Registeration Page
     Click           id=register-button
     Wait For Navigation    url=**/register    timeout=5s
+    Verify Registeration Page
 
 Verify Registeration Page
     Get Text        body    contains    Register an account
