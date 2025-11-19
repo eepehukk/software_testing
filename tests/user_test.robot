@@ -3,19 +3,20 @@ Library    Browser
 
 *** Variables ***
 ${URL}          http://frontend-dev:4321/
-${MYUSERNAME}   jhdfdkuahwasd
+${MYUSERNAME}   SofianKurssisuoritus
 ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
 Opening browser to login Page
-    Do Successful Login
+    Open Browser To Login Page
     Close Browser
 
 
 
 Login Form shows successful registration and logout
-    Do Successful Login
+    Open Browser To Login Page
+    Open Registeration Page
     Enter Username    ${MYUSERNAME}
     Enter Password    ${MYPASSWORD}
     Submit Register Form
@@ -23,7 +24,7 @@ Login Form shows successful registration and logout
     Close Browser
 
 Login Form successful after registration and logout
-    Fill Login Form
+    Open Browser To Login Page
     Enter Username    ${MYUSERNAME}
     Enter Password    ${MYPASSWORD}
     Submit Login Form
@@ -32,28 +33,18 @@ Login Form successful after registration and logout
 
 *** Keywords ***
 
-Fill Login Form
-    Open Browser To Login Page
-
-
-Do Successful Login
-    Open Browser To Login Page
-    Open Registeration Page
-    Verify Registeration Page
-
 Open Browser To Login Page
     New Browser     chromium     headless=True
     New Page        ${URL}login
-    
     Get Text        body    contains    Welcome to Todo Manager
 
 
 Open Registeration Page
-    Get Url        Should Be    ${URL}login
-    Sleep         4s
-    Click    xpath=//button[normalize-space(text())='To Registration']
-    Sleep         4s
-
+    Sleep          1s
+    Click    text=To Registration
+    Wait For Navigation    url=**/register    timeout=5s
+    Sleep          1s
+    Verify Registeration Page
 
 Verify Registeration Page
     Get Text        body    contains    Register an account
@@ -68,14 +59,14 @@ Enter Password
     Fill Text       id=password    ${password}
 
 Submit Register Form
-    Sleep          2s
-    Click    xpath=//button[normalize-space(text())='To Registration']
-    Sleep          10s
+    Sleep          1s
+    Click    role=button >> text=Register
+    Sleep          1s
 
 Submit Login Form
     Sleep          2s
-    Click          id=login-form-button
-    Sleep          10s
+    Click    role=button >> text=Login
+    Sleep          1s
 
 Do Successful Logout
     Click           text=Logout
@@ -88,5 +79,5 @@ Verify that error message about db is visible
 
 
 Verify That Todo Manager Is Visible
-    Sleep          4s
+    Sleep          1s
     Get Url         Should Be    ${URL}

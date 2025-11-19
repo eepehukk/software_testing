@@ -32,6 +32,13 @@ services:
     depends_on:
       database-dev:
         condition: service_healthy
+      database-migration-dev:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -s http://backend-dev:8000 || exit 1" ]
+      interval: 5s
+      timeout: 3s
+      retries: 15
 
     networks:
       - default
@@ -69,6 +76,8 @@ services:
       dockerfile: Dockerfile
     depends_on:
       frontend-dev:
+        condition: service_healthy
+      backend-dev:
         condition: service_healthy
     networks:
       - default
