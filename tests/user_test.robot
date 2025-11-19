@@ -8,6 +8,12 @@ ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
+Opening browser to login Page
+    Do Successful Login
+    Close Browser
+
+
+
 Login Form shows successful registration and logout
     Do Successful Login
     Enter Username    ${MYUSERNAME}
@@ -36,14 +42,18 @@ Do Successful Login
     Verify Registeration Page
 
 Open Browser To Login Page
-    New Browser     headless=${TRUE}
+    New Browser     chromium     headless=True
     New Page        ${URL}login
+    
     Get Text        body    contains    Welcome to Todo Manager
 
 
 Open Registeration Page
-    Click           id=register-button
-    Wait For Navigation    url=**/register    timeout=5s
+    Get Url        Should Be    ${URL}login
+    Sleep         4s
+    Click    xpath=//button[normalize-space(text())='To Registration']
+    Sleep         4s
+
 
 Verify Registeration Page
     Get Text        body    contains    Register an account
