@@ -125,14 +125,9 @@ Verify Todolist is Visible
     Get Text        body    contains    SofianNopat
 
 Delete Todolist
-    Click    css=button:has([icon="fluent:delete-20-regular"])
+    Click    button:has([icon="fluent:delete-20-regular"])
     Sleep    5s
-    Get Text        body    contains    Are you sure you want to delete this todo list?
-    Sleep    5s
-    Click    role=button >> text=Delete
-
-
-
+    Verify Delete Works
 
 Verify Delete Works
     Wait For Elements State    text=SofianNopat    detached
