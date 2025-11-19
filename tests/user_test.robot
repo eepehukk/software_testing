@@ -83,7 +83,7 @@ Submit Register Form
     Sleep    1s
 
 Submit Login Form
-    Sleep    2s
+    Sleep    1s
     Click    role=button >> text=Login
     Sleep    1s
 
@@ -102,7 +102,7 @@ Verify That Todo Manager Is Visible
     Get Url        Should Be    ${URL}
 
 Open Create a Todolist
-    Sleep    2s
+    Sleep    1s
     Click    role=button >> text=New todo list
     Sleep    1s
     Verify Creation of Todolist Page
@@ -114,7 +114,7 @@ Fill Todo List Form
     Enter Todolist Name
     Enter Todolist Description
     Click    role=button >> text=Create
-    Sleep    5s
+    Sleep    1s
     Verify Todolist is Visible
 
 Enter Todolist Name
@@ -128,7 +128,7 @@ Verify Todolist is Visible
 
 Delete Todolist
     Click    button:has([icon="fluent:delete-20-regular"])
-    Sleep    5s
+    Sleep    1s
     Verify Delete Works
 
 Verify Delete Works
