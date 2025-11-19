@@ -69,7 +69,7 @@ Enter Password
 
 Submit Register Form
     Sleep          2s
-    Click           id=submit-register-button
+    Click    xpath=//button[normalize-space(text())='To Registration']
     Sleep          10s
 
 Submit Login Form
