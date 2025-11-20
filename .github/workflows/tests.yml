@@ -8,4 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: docker compose down --remove-orphans ; rm -rf database/psql_data ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; docker logs -f software_testing-robot-tests-1
+
+      - name: Remove old DB data
+        run: rm -rf database/psql_data
+
+      - name: Build containers
+        run: docker compose -f compose.dev.yml build
+
+      - name: Run stack & tests (fail on test failure)
+        run: docker compose -f compose.dev.yml up --exit-code-from robot-tests
