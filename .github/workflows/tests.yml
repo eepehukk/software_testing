@@ -16,7 +16,7 @@ jobs:
         run: rm -rf database/psql_data
 
       - name: Build containers
-        run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests
+        run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev --exit-code-from robot-tests
 
       - name: Test results in form of logs
         run: docker logs -f software_testing-robot-tests-1
