@@ -13,10 +13,10 @@ services:
     networks:
       - default
     healthcheck:
-      test: [ "CMD-SHELL", "curl -f http://frontend-dev:4321 || exit 1" ]
-      interval: 5s
-      timeout: 3s
-      retries: 5
+      test: [ "CMD-SHELL", "curl --silent --max-time 1 http://frontend-dev:4321 || exit 1" ]
+      interval: 3s
+      timeout: 1s
+      retries: 40
 
   backend-dev:
     build:
@@ -35,10 +35,10 @@ services:
       database-migration-dev:
         condition: service_completed_successfully
     healthcheck:
-      test: [ "CMD-SHELL", "curl -s http://backend-dev:8000 || exit 1" ]
-      interval: 5s
-      timeout: 3s
-      retries: 15
+      test: [ "CMD-SHELL", "curl --silent --max-time 1 http://backend-dev:8000 || exit 1" ]
+      interval: 3s
+      timeout: 1s
+      retries: 40
 
     networks:
       - default
@@ -54,10 +54,10 @@ services:
     ports:
       - '5431:5432'
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -h localhost" ]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -h 127.0.0.1" ]
+      interval: 3s
+      timeout: 1s
+      retries: 40
 
   database-migration-dev:
     image: flyway/flyway:9.0.4-alpine
@@ -79,5 +79,4 @@ services:
         condition: service_healthy
       backend-dev:
         condition: service_healthy
-    networks:
-      - default
+    network_mode: "host"

@@ -2,7 +2,7 @@
 Library    Browser
 
 *** Variables ***
-${URL}          http://frontend-dev:4321/
+${URL}          http://127.0.0.1:4321/
 ${MYUSERNAME}   SofianKurssisuoritus
 ${MYPASSWORD}   1234dsakfvsfavygd
 
@@ -40,10 +40,10 @@ Open Browser To Login Page
 
 
 Open Registeration Page
-    Sleep          1s
+    Sleep          2s
     Click    text=To Registration
     Wait For Navigation    url=**/register    timeout=5s
-    Sleep          1s
+    Sleep          2s
     Verify Registeration Page
 
 Verify Registeration Page
@@ -59,14 +59,14 @@ Enter Password
     Fill Text       id=password    ${password}
 
 Submit Register Form
-    Sleep          1s
+    Sleep          2s
     Click    role=button >> text=Register
-    Sleep          1s
+    Sleep          2s
 
 Submit Login Form
     Sleep          2s
     Click    role=button >> text=Login
-    Sleep          1s
+    Sleep          2s
 
 Do Successful Logout
     Click           text=Logout
@@ -79,5 +79,5 @@ Verify that error message about db is visible
 
 
 Verify That Todo Manager Is Visible
-    Sleep          1s
+    Sleep          2s
     Get Url         Should Be    ${URL}

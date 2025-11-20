@@ -2,7 +2,7 @@
 Library    Browser
 
 *** Variables ***
-${URL}    http://frontend-dev:4321/login
+${URL}    http://127.0.0.1:4321/login
 
 *** Test Cases ***
 Frontend Page Should Load

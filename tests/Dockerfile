@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip curl && apt-get cle
 WORKDIR /tests
 
 # Install Robot Framework + Browser library
-RUN pip install --no-cache-dir robotframework robotframework-browser
+RUN pip install --no-cache-dir robotframework robotframework-browser robotframework-requests
 
 # Initialize Playwright browsers
 RUN rfbrowser init

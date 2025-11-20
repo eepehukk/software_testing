@@ -38,7 +38,7 @@ app.add_middleware(AuthenticationMiddleware,
                    backend=AuthBackend(), on_error=on_auth_error)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost', 'http://localhost:4321', 'http://frontend-dev:4321', 'http://backend-dev:8000'],  # TODO: switch through env
+    allow_origins=['http://localhost', 'http://localhost:4321', 'http://127.0.0.1:4321'],  # TODO: switch through env
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['Authorization', 'Content-Type']
@@ -48,3 +48,18 @@ app.add_middleware(
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(_request: Request, exception: RequestValidationError):
     return JSONResponse(content={"detail": str(exception)}, status_code=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+@app.get("/health")
+async def health():
+    """Simple health endpoint. Returns 200 when app and DB (optional) are reachable.
+
+    This endpoint tries a minimal DB query to ensure the database connection works. If
+    the DB is not available, it returns 503.
+    """
+    try:
+        # perform a lightweight DB check; DatabaseWrapper will raise if DB is unreachable
+        await database.fetch_one("SELECT 1")
+        return {"status": "ok"}
+    except Exception as e:
+        return JSONResponse(status_code=503, content={"status": "unhealthy", "detail": str(e)})
