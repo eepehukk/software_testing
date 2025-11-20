@@ -48,4 +48,6 @@ We will not be testing rare edge cases, error handling scenarios, all invalid in
 
 Tehtiin yhdessä manuaalista testausta ja keskusteltiin mahdoillissta bugeista. Selvitimme yhdessä myös mitä tulee bug reporttiin tehdä ja eemil kirjasi raportit.
 
-Alkuvaiheissa työstimme yhdessä Dockerfilen tekoa testien ympäristöä varten. Alussa kohtasimme suuria haasteita monen epämääräisen asian kanssa. Selvitimme haasteet jotka lopulta liittyi kontin oikeuksiin päästä käsiksi frontend ja backend konttiin. Hieman jouduimme muokata koodia. Käytimme tähän kaksi työpäivää.  
+Alkuvaiheissa työstimme yhdessä Dockerfilen tekoa testien ympäristöä varten. Alussa kohtasimme suuria haasteita monen epämääräisen asian kanssa. Selvitimme haasteet jotka lopulta liittyi kontin oikeuksiin päästä käsiksi frontend ja backend konttiin. Hieman jouduimme muokata koodia. Käytimme tähän kaksi työpäivää.
+
+automaattisissa e2e testeissä työnjaossa eemil hoiti koodin ylös kirjoittamisen ja toistettavuuden. Yhdessä suunnittelimme ja ratkoimme isoimmat ongelmat, kuten miten painaa nappia Robot framworkilla, jos napilla ei ole id:tä tai nimeä.
