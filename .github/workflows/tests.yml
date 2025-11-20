@@ -9,11 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Remove orphans
+        run: docker compose down --remove-orphans
+
       - name: Remove old DB data
         run: rm -rf database/psql_data
 
       - name: Build containers
-        run: docker compose -f compose.dev.yml build
+        run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev
 
       - name: Run stack & tests (fail on test failure)
         run: docker compose -f compose.dev.yml up --exit-code-from robot-tests
