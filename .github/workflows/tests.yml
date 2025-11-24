@@ -19,7 +19,11 @@ jobs:
         run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev 
         
       - name: API & e2e tests
-        run: docker compose -f compose.dev.yml up -d --build robot-tests
+        run: docker compose -f compose.dev.yml up --build robot-tests
+
+      - name: Print robot logs if tests fail
+        if: failure()
+        run: docker logs software_testing-robot-tests-1
 
       - name: Test results in form of logs
         run: docker logs -f software_testing-robot-tests-1
