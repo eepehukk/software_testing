@@ -8,10 +8,6 @@ ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
-Opening browser to login Page (Warming FOR ERROR)
-    Open Browser To Login Page WRONG
-    Close Browser
-
 Opening browser to login Page (Warming Up)
     Open Browser To Login Page
     Close Browser
