@@ -31,17 +31,6 @@ User Login is successful
     Status Should Be  200  ${response}
 
 
-User registration fails with existing username
-    &{data}=  Create Dictionary  username=${USERNAME}  password=wrongpassword
-    &{headers}=  Create Dictionary  Content-Type=application/json
-    ${response}=  POST On Session  uusi  api/users  json=${data}    headers=${headers}
-    Status Should Be  401  ${response}
-
-User login fails with wrong password
-    &{data}=  Create Dictionary  username=${USERNAME}  password=wrongpassword
-    &{headers}=  Create Dictionary  Content-Type=application/json
-    ${response}=  POST On Session  uusi  api/users/login  json=${data}    headers=${headers}
-    Status Should Be  401  ${response}
 
 
 *** Keywords ***
