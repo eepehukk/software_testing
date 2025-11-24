@@ -8,6 +8,10 @@ ${MYPASSWORD}   1234dsakfvsfavygd
 
 *** Test Cases ***
 
+Opening browser to login Page (Warming FOR ERROR)
+    Open Browser To Login Page WRONG
+    Close Browser
+
 Opening browser to login Page (Warming Up)
     Open Browser To Login Page
     Close Browser
@@ -53,6 +57,11 @@ Deleting a Todolist
     Close Browser
 
 *** Keywords ***
+
+Open Browser To Login Page WRONG
+    New Browser     chromium     headless=True
+    New Page        Penankauppa.kissakakka/login
+    Get Text        body    contains    Welcome to Todo Manager
 
 Open Browser To Login Page
     New Browser     chromium     headless=True

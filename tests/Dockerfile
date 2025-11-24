@@ -17,4 +17,4 @@ RUN rfbrowser init
 COPY . .
 
 # Default command runs all tests in this directory
-CMD ["robot", "."]
+CMD ["robot", "--nostatusrc", "."]

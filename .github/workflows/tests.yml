@@ -1,0 +1,22 @@
+name: docker-tests
+on: 
+  push:
+    branches:
+      - eemil_dev
+jobs:
+  all_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Remove orphans
+        run: docker compose down --remove-orphans
+
+      - name: Remove old DB data
+        run: rm -rf database/psql_data
+
+      - name: Build containers
+        run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev 
+        
+      - name: API & e2e tests
+        run: docker compose -f compose.dev.yml run --build --rm robot-tests
