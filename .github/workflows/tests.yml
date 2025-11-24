@@ -20,10 +20,3 @@ jobs:
         
       - name: API & e2e tests
         run: docker compose -f compose.dev.yml run --build --rm robot-tests
-
-      - name: Print robot logs if tests fail
-        if: failure()
-        run: docker logs software_testing-robot-tests-1
-
-      - name: Test results in form of logs
-        run: docker logs -f software_testing-robot-tests-1
