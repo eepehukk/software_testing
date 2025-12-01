@@ -108,7 +108,7 @@ Verify that error message about db is visible
 Verify That Todo Manager Is Visible
 
     Sleep          1s
-    Get Url        Should Be    ${URL}register
+    Get Url        Should Be    ${URL}
 
 Open Create a Todolist
     Sleep    1s
