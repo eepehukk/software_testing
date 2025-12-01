@@ -99,7 +99,7 @@ Do Successful Logout
     Click    text=Logout
 
 Verify that error message about db is visible
-    Get Url    Should Be    ${URL}register/page
+    Get Url    Should Be    ${URL}register
 
     ${error_text}=    Get Text         id=login-form-error
     Should Contain    ${error_text}    relation "users" does not exist 
@@ -108,7 +108,7 @@ Verify that error message about db is visible
 Verify That Todo Manager Is Visible
 
     Sleep          1s
-    Get Url        Should Be    ${URL}
+    Get Url        Should Be    ${URL}register
 
 Open Create a Todolist
     Sleep    1s
