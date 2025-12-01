@@ -99,7 +99,7 @@ Do Successful Logout
     Click    text=Logout
 
 Verify that error message about db is visible
-    Get Url    Should Be    ${URL}register
+    Get Url    Should Be    ${URL}register/page
 
     ${error_text}=    Get Text         id=login-form-error
     Should Contain    ${error_text}    relation "users" does not exist 
