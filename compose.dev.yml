@@ -10,6 +10,14 @@ services:
       - "/app/node_modules/"
     depends_on:
       - backend-dev
+    networks:
+      - default
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --silent --max-time 1 http://frontend-dev:4321 || exit 1" ]
+      interval: 3s
+      timeout: 1s
+      retries: 40
+
   backend-dev:
     build:
       context: backend/
@@ -22,23 +30,37 @@ services:
       - database/.dev.env
       - backend/.dev.env
     depends_on:
-      - database-dev
+      database-dev:
+        condition: service_healthy
+      database-migration-dev:
+        condition: service_completed_successfully
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --silent --max-time 1 http://backend-dev:8000 || exit 1" ]
+      interval: 3s
+      timeout: 1s
+      retries: 40
+
+    networks:
+      - default
+    # optional: add a small script or entrypoint to retry DB connection on startup
+
   database-dev:
     image: "postgres:16.0"
     restart: unless-stopped
     env_file:
       - database/.dev.env
-    # volumes: # uncomment these two lines to persist database container data after removing the container
-    #   - ./database/psql_data:/var/lib/postgresql/data
+    volumes:
+      - ./database/psql_data:/var/lib/postgresql/data # persist DB data
     ports:
       - '5431:5432'
     healthcheck:
-      test: pg_isready -q -h localhost -d $$POSTGRES_DB -U $$POSTGRES_USER
-      interval: 1s
+      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB} -h 127.0.0.1" ]
+      interval: 3s
       timeout: 1s
-      retries: 15
+      retries: 40
+
   database-migration-dev:
-    image: flyway/flyway:9.0.4-alpine # Old alpine images are smaller and have enough features for our needs, 9.x comes with multi-arch support
+    image: flyway/flyway:9.0.4-alpine
     env_file:
       - database/.dev.env
     depends_on:
@@ -47,25 +69,14 @@ services:
     volumes:
       - ./database/migration/sql:/flyway/sql
     command: -connectRetries=60 -baselineOnMigrate=true migrate
+
   robot-tests:
     build:
-      context: ./tests
+      context: tests/
       dockerfile: Dockerfile
     depends_on:
-      - frontend-dev
-      - backend-dev
-    environment:
-      FRONTEND_URL: http://frontend-dev:4321
-      BACKEND_URL: http://backend-dev:8000
-    volumes:
-      - ./tests:/tests
-      - ./tests/results:/tests/results
-    command: >
-      bash -c "
-        echo '⏳ Waiting for backend...';
-        until curl -s http://backend-dev:8000/health; do sleep 2; done;
-        echo '⏳ Waiting for frontend...';
-        until curl -s http://frontend-dev:4321; do sleep 2; done;
-        echo '🚀 Starting Robot Framework tests...';
-        robot --outputdir results /tests
-      "
+      frontend-dev:
+        condition: service_healthy
+      backend-dev:
+        condition: service_healthy
+    network_mode: "host"

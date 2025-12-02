@@ -57,15 +57,8 @@ This can be done for both configurations with
 docker compose down --remove-orphans
 ```
 
-
-### Tests 
-
-Can be ran when the dev container is running with running the test container with these
+### Test run command
 
 ```
-docker build -t robot-tests -f tests/Dockerfile tests
-```
-
-```
-docker run --rm robot-tests
+docker compose down --remove-orphans ; rm -rf database/psql_data ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; docker logs -f software_testing-robot-tests-1
 ```
