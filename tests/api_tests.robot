@@ -29,9 +29,24 @@ User Login is successful
     &{headers}=  Create Dictionary  Content-Type=application/json
     ${response}=  POST On Session  uusi  api/users/login  json=${data}    headers=${headers}
     Status Should Be  200  ${response}
+    ${json}=  Set Variable     ${response.json()}
+    Set Suite Variable  ${ACCESS_TOKEN}  ${json['accessToken']}
 
+Todo list GET is successful
+    &{headers}=  Create Dictionary  Authorization=Bearer ${ACCESS_TOKEN}
+    ${response}=  GET On Session  uusi  api/todo-lists  headers=${headers}
+    Status Should Be  200  ${response}
 
+Todo list Creation is successful
+    &{data}=  Create Dictionary  name=Ostokset  description=Osta
+    &{headers}=  Create Dictionary  Authorization=Bearer ${ACCESS_TOKEN}  Content-Type=application/json
+    ${response}=  POST On Session  uusi  api/todo-lists  json=${data}  headers=${headers}
+    Status Should Be  200  ${response}
 
+Todo list Deletion is successful
+    &{headers}=  Create Dictionary  Authorization=Bearer ${ACCESS_TOKEN}
+    ${response}=  DELETE On Session  uusi  api/todo-lists/1  headers=${headers}
+    Status Should Be  200  ${response}
 
 *** Keywords ***
 Create My Session
