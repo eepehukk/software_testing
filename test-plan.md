@@ -1,9 +1,9 @@
-# Testisuunnitelma NIKO & Eemil
+# Testisuunnitelma Niko & Eemil
 
 ## 1. Base details
 
-- Pohjana testisuunnitelmaan käytetään tehtävänantoia & ohjeistusta sivulta: `https://www.valagroup.com/fi/blogi/opas-testaussuunnitelman-laatimiseen-ja-ilmainen-malli/?utm_term=testaussuunnitelma&utm_campaign=Traffic&utm_source=adwords&utm_medium=ppc&hsa_acc=9088882292&hsa_cam=812356547&hsa_grp=146254598855&hsa_ad=647340546633&hsa_src=g&hsa_tgt=kwd-923896387183&hsa_kw=testaussuunnitelma&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=812356547&gbraid=0AAAAADc-lK9XIE2jFib9E_bvtqhU4RHhQ&gclid=Cj0KCQiAq7HIBhDoARIsAOATDxASIZo5tsvg5CqZ3kOms2Ya5p6PFI34i3kxshJFwT3NpdgTBpFQ3b4aAhPQEALw_wcB`
-- Projektin perustiedot.
+- Basis for test-plan we used instructions found on course platform and trhough this link: `https://www.valagroup.com/fi/blogi/opas-testaussuunnitelman-laatimiseen-ja-ilmainen-malli/?utm_term=testaussuunnitelma&utm_campaign=Traffic&utm_source=adwords&utm_medium=ppc&hsa_acc=9088882292&hsa_cam=812356547&hsa_grp=146254598855&hsa_ad=647340546633&hsa_src=g&hsa_tgt=kwd-923896387183&hsa_kw=testaussuunnitelma&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=812356547&gbraid=0AAAAADc-lK9XIE2jFib9E_bvtqhU4RHhQ&gclid=Cj0KCQiAq7HIBhDoARIsAOATDxASIZo5tsvg5CqZ3kOms2Ya5p6PFI34i3kxshJFwT3NpdgTBpFQ3b4aAhPQEALw_wcB`
+
 
 ## 2. Test Context
 
@@ -33,6 +33,8 @@ We will not be testing rare edge cases, error handling scenarios, all invalid in
 
 ## 3 Testing schedule
 
+We did not have any specific timeline because we were not sure amount of work each step would take.
+
 1. Testing plan
 2. manual testing
 3. Automatic testing
@@ -48,7 +50,7 @@ In the final meters of the project we realized that based on course example we w
 
 ## 5 Division of labor
 
-Mostly this whole project is done in Jyväskyläs libary side by side. Couple individual commit here and there and last polishes has been done in zoom.
+Mostly this whole project is done in Jyväskylä Universitys libary side by side. Couple individual commit here and there and last polishes has been done in zoom.
 
 We performed manual testing together and discussed potential bugs. We also determined the requirements for bug reports, which Eemil then documented.
 
@@ -57,3 +59,5 @@ In the early stages, we collaborated on creating a Dockerfile for the test envir
 Regarding the automated E2E tests and division of labor, Eemil was responsible for writing the code. However we planned the tests and solved the major technical issues together. Such as determining how to click a button using Robot Framework when the button lacked an ID or name (Please improve those buttons that they have ids and names. Also I know we should use data attributes more but still please I need easier options :D. This is my only request Sami from Eemil).
 
 Regarding the automated E2E tests and division of labor, Niko was responsible for writing the code. However we planned the tests and solved the major technical issues together.
+
+Regarding to pipeline its done mostly done together.
