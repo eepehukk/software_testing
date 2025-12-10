@@ -1,5 +1,6 @@
 *** Settings ***
 Library                 RequestsLibrary
+Library                 Collections
 Test Setup              Create My Session 
 Test Teardown           Delete All Sessions
 
@@ -23,6 +24,8 @@ User Registration is successful
     &{headers}=  Create Dictionary  Content-Type=application/json
     ${response}=  POST On Session  uusi  /api/users  json=${data}  headers=${headers}
     Status Should Be  200  ${response}
+    ${json}=  Set Variable  ${response.json()}
+    Should Be Equal  ${json['username']}  ${USERNAME}
     
 User Login is successful
     &{data}=  Create Dictionary  username=${USERNAME}  password=${PASSWORD}
@@ -30,6 +33,7 @@ User Login is successful
     ${response}=  POST On Session  uusi  api/users/login  json=${data}    headers=${headers}
     Status Should Be  200  ${response}
     ${json}=  Set Variable     ${response.json()}
+    Should Be Equal  ${json['username']}  ${USERNAME}
     Set Suite Variable  ${ACCESS_TOKEN}  ${json['accessToken']}
 
 Todo list GET is successful
@@ -42,11 +46,16 @@ Todo list Creation is successful
     &{headers}=  Create Dictionary  Authorization=Bearer ${ACCESS_TOKEN}  Content-Type=application/json
     ${response}=  POST On Session  uusi  api/todo-lists  json=${data}  headers=${headers}
     Status Should Be  200  ${response}
+    ${json}=  Set Variable  ${response.json()}
+    Should Be Equal  ${json['name']}  Ostokset
+    Should Be Equal  ${json['description']}  Osta
 
 Todo list Deletion is successful
     &{headers}=  Create Dictionary  Authorization=Bearer ${ACCESS_TOKEN}
     ${response}=  DELETE On Session  uusi  api/todo-lists/1  headers=${headers}
     Status Should Be  200  ${response}
+    ${json}=  Set Variable  ${response.json()}
+    Should Be Equal  ${json}  ${True}
 
 *** Keywords ***
 Create My Session

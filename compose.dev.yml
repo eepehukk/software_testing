@@ -49,8 +49,8 @@ services:
     restart: unless-stopped
     env_file:
       - database/.dev.env
-    volumes:
-      - ./database/psql_data:/var/lib/postgresql/data # persist DB data
+      #volumes: 
+      #- ./database/psql_data:/var/lib/postgresql/data # persist DB data
     ports:
       - '5431:5432'
     healthcheck:

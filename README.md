@@ -59,6 +59,8 @@ docker compose down --remove-orphans
 
 ### Test run command
 
+This command runs both api tests an also e2e tests
+
 ```
-docker compose down --remove-orphans ; rm -rf database/psql_data ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; docker logs -f software_testing-robot-tests-1
+docker compose down --remove-orphans ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; docker logs -f software_testing-robot-tests-1
 ```
