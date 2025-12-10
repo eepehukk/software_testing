@@ -18,14 +18,14 @@ The objective is to provide feedback to the development team about te current st
 
 ### 2.1 In scope
 #### Manual testing
-In this project manual testings purpose was to find features that were not working properly. Usually manual testings idea is to  
+In this project manual testings purpose was to find features that were not working properly. Usually manual testings idea is to test users experience and find out problems that users might find out.
 
-#### API and E2E testing
+#### API and Automated testing
 API and end to end testing to be made as happy path testing.
 
 A working CI pipeline to run the API tests automatically.
 
-Another pipeline for a selection of end to end tests tagged as smoke tests to be run on push to main branch and run a full test suite nightly. With one step for running non-functional automated tests.
+Another pipeline for a selection of end to end tests tagged as smoke tests to be run on push to main branch.
 
 
 ### 2.2 Out of scope
@@ -40,15 +40,22 @@ We will not be testing rare edge cases, error handling scenarios, all invalid in
 3. Automatic testing
 4. API testing
 5. CI pipeline
+6. Testing plan additions
 
 ## 4 Practicalities
 
-We tackled this project with regular meets in every week. We used to meet atleast twice a week to work on this project. For E2E and API testing we used Robot Framework and couple extension libaries such as Browser, Collectios and RequestsLibary. During project we worte down thoughts for testingplan but we decided to leave this part for last. In the end 
+We tackled this project with regular meets in every week. We used to meet atleast twice a week to work on this project. For E2E and API testing we used Robot Framework and couple extension libaries such as Browser, Collectios and RequestsLibary. During project we worte down thoughts for testingplan but we decided to leave this part for last. 
 
-## 5 työnjako
+In the final meters of the project we realized that based on course example we would need to change the whole structure of our testing "folders". In the end we just modified our solution that we kept our tests folder in the root and we split under tests folder api and e2e folders. This whole little modification messe up our pipeline etc but in the end we made it to work.
 
-Tehtiin yhdessä manuaalista testausta ja keskusteltiin mahdoillissta bugeista. Selvitimme yhdessä myös mitä tulee bug reporttiin tehdä ja eemil kirjasi raportit.
+## 5 Division of labor
 
-Alkuvaiheissa työstimme yhdessä Dockerfilen tekoa testien ympäristöä varten. Alussa kohtasimme suuria haasteita monen epämääräisen asian kanssa. Selvitimme haasteet jotka lopulta liittyi kontin oikeuksiin päästä käsiksi frontend ja backend konttiin. Hieman jouduimme muokata koodia. Käytimme tähän kaksi työpäivää.
+Mostly this whole project is done in Jyväskyläs libary side by side. Couple individual commit here and there and last polishes has been done in zoom.
 
-automaattisissa e2e testeissä työnjaossa eemil hoiti koodin ylös kirjoittamisen ja toistettavuuden. Yhdessä suunnittelimme ja ratkoimme isoimmat ongelmat, kuten miten painaa nappia Robot framworkilla, jos napilla ei ole id:tä tai nimeä.
+We performed manual testing together and discussed potential bugs. We also determined the requirements for bug reports, which Eemil then documented.
+
+In the early stages, we collaborated on creating a Dockerfile for the test environment. Initially we faced significant challenges regarding several issues. We resolved these challenges, which were ultimately related to the container's permissions to access the frontend and backend containers. This required slight modifications to the code, and we spent two working days on this task. (In the end we deleted these code modifications because we realized it wasnt allowed). Currently our tests folder order and Dockerfile is mostly written by Niko.
+
+Regarding the automated E2E tests and division of labor, Eemil was responsible for writing the code. However we planned the tests and solved the major technical issues together. Such as determining how to click a button using Robot Framework when the button lacked an ID or name (Please improve those buttons that they have ids and names. Also I know we should use data attributes more but still please I need easier options :D. This is my only request Sami from Eemil).
+
+Regarding the automated E2E tests and division of labor, Niko was responsible for writing the code. However we planned the tests and solved the major technical issues together.
