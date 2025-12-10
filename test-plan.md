@@ -11,15 +11,14 @@ Testers: Niko Iljin & Eemil Hukkanen
 
 The main goal of this testing project is to ensure reliable user experience. Its done by identifying bugs in the given application and ensure overall quality during the development of the application. 
 
-Tetsing focuses on the developement version of the application, specifically on critical functionalities and identifies what will not be tested in the developement environment as well what should be tested before release. 
+Testing focuses on the developement version of the application, specifically on critical functionalities and identifies what will not be tested in the developement environment as well what should be tested before release. 
 
 The objective is to provide feedback to the development team about te current state of the application and support bug detection before deployment to production.
 
 
 ### 2.1 In scope
 #### Manual testing
-Manual testing to test all functionalities work as expexted and usability testing for trying to test all user usages. Consisting autenthication, todo list and todo item functionalities
-
+In this project manual testings purpose was to find features that were not working properly. Usually manual testings idea is to  
 
 #### API and E2E testing
 API and end to end testing to be made as happy path testing.
@@ -39,10 +38,12 @@ We will not be testing rare edge cases, error handling scenarios, all invalid in
 1. Testing plan
 2. manual testing
 3. Automatic testing
-
+4. API testing
+5. CI pipeline
 
 ## 4 Practicalities
-- Työkalut & raportointi & tuotokset / tulokset
+
+We tackled this project with regular meets in every week. We used to meet atleast twice a week to work on this project. For E2E and API testing we used Robot Framework and couple extension libaries such as Browser, Collectios and RequestsLibary. During project we worte down thoughts for testingplan but we decided to leave this part for last. In the end 
 
 ## 5 työnjako
 
