@@ -50,7 +50,7 @@ In the final meters of the project we realized that based on course example we w
 
 ## 5 Division of labor
 
-Mostly this whole project is done in Jyväskyläs libary side by side. Couple individual commit here and there and last polishes has been done in zoom.
+Mostly this whole project is done in Jyväskylä Universitys libary side by side. Couple individual commit here and there and last polishes has been done in zoom.
 
 We performed manual testing together and discussed potential bugs. We also determined the requirements for bug reports, which Eemil then documented.
 
