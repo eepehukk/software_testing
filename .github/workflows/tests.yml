@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - eemil_dev
+      - main
 jobs:
   all_tests:
     runs-on: ubuntu-latest

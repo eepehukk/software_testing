@@ -23,9 +23,7 @@ In this project manual testings purpose was to find features that were not worki
 #### API and Automated testing
 API and end to end testing to be made as happy path testing.
 
-A working CI pipeline to run the API tests automatically.
-
-Another pipeline for a selection of end to end tests tagged as smoke tests to be run on push to main branch.
+A working CI pipeline to run the API tests automatically on push for development and main branch
 
 
 ### 2.2 Out of scope
