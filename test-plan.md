@@ -1,4 +1,4 @@
-# Testisuunnitelma NIKO & Eemil
+# Testisuunnitelma Niko & Eemil
 
 ## 1. Base details
 
