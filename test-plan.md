@@ -59,3 +59,5 @@ In the early stages, we collaborated on creating a Dockerfile for the test envir
 Regarding the automated E2E tests and division of labor, Eemil was responsible for writing the code. However we planned the tests and solved the major technical issues together. Such as determining how to click a button using Robot Framework when the button lacked an ID or name (Please improve those buttons that they have ids and names. Also I know we should use data attributes more but still please I need easier options :D. This is my only request Sami from Eemil).
 
 Regarding the automated E2E tests and division of labor, Niko was responsible for writing the code. However we planned the tests and solved the major technical issues together.
+
+Regarding to pipeline its done mostly done together.
