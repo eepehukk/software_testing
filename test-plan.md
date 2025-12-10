@@ -35,6 +35,8 @@ We will not be testing rare edge cases, error handling scenarios, all invalid in
 
 ## 3 Testing schedule
 
+We did not have any specific timeline because we were not sure amount of work each step would take.
+
 1. Testing plan
 2. manual testing
 3. Automatic testing
