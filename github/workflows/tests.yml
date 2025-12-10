@@ -18,6 +18,9 @@ jobs:
       - name: Build containers
         run: docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev 
         
-      - name: API & e2e tests
-        run: docker compose -f compose.dev.yml run --build --rm robot-tests robot ./
+      - name: API tests
+        run: docker compose -f compose.dev.yml run --build --rm robot-tests robot ./api-tests/
+
+      - name: e2e tests
+        run: docker compose -f compose.dev.yml run --build --rm robot-tests robot ./e2e-tests/
 
