@@ -19,6 +19,7 @@ The application includes the following four services.
 - `backend` — a REST API implemented with [Python](https://www.python.org/) and [FastAPI](https://fastapi.tiangolo.com/)
 - `database` — a [PostgreSQL](https://www.postgresql.org/) database
 - `database-migration` — a database migration service ([Refinery](https://github.com/rust-db/refinery)) for incremental database schema updates
+- `tests` — Robot Framework end-to-end and API tests (see [tests/README.md](tests/README.md))
 
 ## Getting Started
 
@@ -55,12 +56,4 @@ This can be done for both configurations with
 
 ```
 docker compose down --remove-orphans
-```
-
-### Test run command
-
-This command runs both api tests an also e2e tests
-
-```
-docker compose down --remove-orphans ; docker compose -f compose.dev.yml up -d --build frontend-dev backend-dev database-dev database-migration-dev robot-tests ; docker logs -f software_testing-robot-tests-1
 ```
